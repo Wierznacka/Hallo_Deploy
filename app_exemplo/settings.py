@@ -15,18 +15,18 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print("gustavo", config('NOME',default='fulano'))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-print("SECRET_KEY", SECRET_KEY)
+SECRET_KEY = 'django-insecure-3-f3mm@72sz#*&bo4sb0=j_vc7nych_sn0#zxic0&m**)vg($3'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -144,3 +144,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'  # Página para onde usuários não logados serão redirecionados
 LOGIN_REDIRECT_URL = 'produto_list'  # Página após login bem-sucedido
 LOGOUT_REDIRECT_URL = 'login'  # Página após logout
+
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# (Opcional) Diretórios adicionais onde o Django procurará por arquivos estáticos
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
